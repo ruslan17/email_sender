@@ -1,6 +1,7 @@
 package com.application.task.service.impl;
 
 import com.application.task.service.EmailService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -10,14 +11,10 @@ import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 
 @Service
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class EmailServiceImpl implements EmailService {
 
     private final JavaMailSender emailSender;
-
-    @Autowired
-    public EmailServiceImpl(JavaMailSender javaMailSender) {
-        this.emailSender = javaMailSender;
-    }
 
     @Override
     public void send(String to, String subject, String text) {

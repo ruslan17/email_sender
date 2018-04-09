@@ -1,5 +1,6 @@
 package com.application.task.model;
 
+import com.sun.istack.internal.NotNull;
 import lombok.*;
 
 import javax.persistence.*;
@@ -16,8 +17,9 @@ public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    protected Integer id;
+    private Integer id;
 
+    @Column(name = "name", nullable = false)
     private String name;
 
     private String email;
