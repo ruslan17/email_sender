@@ -20,8 +20,6 @@ public class SchedulerService {
 
     private static final String CRON = "*/10 * * * * *";
 
-    private static final LocalDate DATE = LocalDate.now();
-
     private final UserRepositoryService userService;
 
     private final EmailService emailService;
@@ -29,6 +27,7 @@ public class SchedulerService {
     @Scheduled(cron = CRON)
     public void sendMailToUsers() {
         if (!userService.getUsers().isEmpty()) {
+            LocalDate DATE = LocalDate.now();
             List<User> list = userService.getUsers();
             list.forEach(user -> {
                 if (DATE.getMonth() == user.getBirthday().getMonth() && DATE.getDayOfMonth() == user.getBirthday().getDayOfMonth()) {

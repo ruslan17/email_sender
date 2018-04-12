@@ -1,6 +1,5 @@
 package com.application.task.model;
 
-import com.sun.istack.internal.NotNull;
 import lombok.*;
 
 import javax.persistence.*;
