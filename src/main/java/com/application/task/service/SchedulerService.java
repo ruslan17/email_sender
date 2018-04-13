@@ -37,7 +37,7 @@ public class SchedulerService {
                         log.info("Email have been sent. User id: {}, Date: {}", user.getId(), DATE);
                     } catch (Exception e) {
                         log.error("Email can't be sent.User's id: {}, Error: {}", user.getId(), e.getMessage());
-                        e.printStackTrace();
+                        log.error("Email can't be sent", e);
                     }
                 }
             });
