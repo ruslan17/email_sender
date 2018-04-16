@@ -17,8 +17,8 @@ public class UserRepositoryServiceImpl implements UserRepositoryService {
     private final UserRepository repository;
 
     @Override
-    public List<User> getUsers() {
-        return repository.findAllByBirthdayIsNotNullAndEmailIsNotNull();
+    public List<User> getUsersByBirthday(int month, int day) {
+        return repository.findByMatchMonthAndMatchDay(month, day);
     }
 
 }

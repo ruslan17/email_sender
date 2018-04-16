@@ -5,5 +5,6 @@ import com.application.task.model.User;
 import java.util.List;
 
 public interface UserRepositoryService {
-    List<User> getUsers();
+
+    List<User> getUsersByBirthday(int month, int day);
 }
